@@ -10,7 +10,6 @@ import cucumber.api.junit.Cucumber;
 		format = {"pretty", 
 				"html:target/cucumber-report"},
 		features = {"src/test/resources"}
-//		tags = { "@test" }
 		)
 public class RunTest {
 

@@ -6,222 +6,60 @@ formatter.feature({
   "keyword": "Feature",
   "line": 1
 });
-formatter.scenarioOutline({
-  "id": "verifying-site-functionalities;verify-social-media-on-header",
-  "tags": [
-    {
-      "name": "@trail",
-      "line": 3
-    }
-  ],
-  "description": "",
-  "name": "Verify social media on header",
-  "keyword": "Scenario Outline",
-  "line": 4,
-  "type": "scenario_outline"
-});
-formatter.step({
-  "name": "I am on site \"https://www.google.com/keep/\" on \"\u003cbrowser\u003e\"",
-  "keyword": "Given ",
-  "line": 5
-});
-formatter.step({
-  "name": "I should see \"\u003csocialmedia\u003e\" on header",
-  "keyword": "Then ",
-  "line": 6
-});
-formatter.step({
-  "name": "I should see \"Google\" logo on header",
-  "keyword": "And ",
-  "line": 7
-});
-formatter.examples({
-  "id": "verifying-site-functionalities;verify-social-media-on-header;",
-  "description": "",
-  "name": "",
-  "keyword": "Examples",
-  "line": 9,
-  "rows": [
-    {
-      "id": "verifying-site-functionalities;verify-social-media-on-header;;1",
-      "cells": [
-        "socialmedia",
-        "browser"
-      ],
-      "line": 10
-    },
-    {
-      "id": "verifying-site-functionalities;verify-social-media-on-header;;2",
-      "cells": [
-        "gplus",
-        "Chrome"
-      ],
-      "line": 11
-    },
-    {
-      "id": "verifying-site-functionalities;verify-social-media-on-header;;3",
-      "cells": [
-        "facebook",
-        "Firefox"
-      ],
-      "line": 12
-    }
-  ]
-});
 formatter.scenario({
-  "id": "verifying-site-functionalities;verify-social-media-on-header;;2",
+  "id": "verifying-site-functionalities;verify-button",
   "tags": [
     {
-      "name": "@trail",
-      "line": 3
+      "name": "@test",
+      "line": 14
     }
   ],
   "description": "",
-  "name": "Verify social media on header",
-  "keyword": "Scenario Outline",
-  "line": 11,
+  "name": "Verify button",
+  "keyword": "Scenario",
+  "line": 15,
   "type": "scenario"
 });
 formatter.step({
-  "name": "I am on site \"https://www.google.com/keep/\" on \"Chrome\"",
+  "name": "I am on site \"https://www.google.com/keep/\"",
   "keyword": "Given ",
-  "line": 5,
-  "matchedColumns": [
-    1
-  ]
+  "line": 16
 });
 formatter.step({
-  "name": "I should see \"gplus\" on header",
+  "name": "I click on Try Google Keep",
+  "keyword": "When ",
+  "line": 17
+});
+formatter.step({
+  "name": "I should see different versions",
   "keyword": "Then ",
-  "line": 6,
-  "matchedColumns": [
-    0
-  ]
-});
-formatter.step({
-  "name": "I should see \"Google\" logo on header",
-  "keyword": "And ",
-  "line": 7
+  "line": 18
 });
 formatter.match({
   "arguments": [
     {
       "val": "https://www.google.com/keep/",
       "offset": 14
-    },
-    {
-      "val": "Chrome",
-      "offset": 48
     }
   ],
-  "location": "Feature1Steps.i_am_on_site(String,String)"
+  "location": "Feature1Steps.i_am_on_site(String)"
 });
 formatter.result({
-  "duration": 4770426000,
+  "duration": 8378161000,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "gplus",
-      "offset": 14
-    }
-  ],
-  "location": "Feature1Steps.i_should_see_on_header(String)"
+  "location": "Feature1Steps.i_click_on_Try_Google_Keep()"
 });
 formatter.result({
-  "duration": 87000,
+  "duration": 125833000,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "Google",
-      "offset": 14
-    }
-  ],
-  "location": "Feature1Steps.i_should_see_logo_on_header(String)"
+  "location": "Feature1Steps.i_should_see_different_versions()"
 });
 formatter.result({
-  "duration": 572015000,
-  "status": "passed"
-});
-formatter.scenario({
-  "id": "verifying-site-functionalities;verify-social-media-on-header;;3",
-  "tags": [
-    {
-      "name": "@trail",
-      "line": 3
-    }
-  ],
-  "description": "",
-  "name": "Verify social media on header",
-  "keyword": "Scenario Outline",
-  "line": 12,
-  "type": "scenario"
-});
-formatter.step({
-  "name": "I am on site \"https://www.google.com/keep/\" on \"Firefox\"",
-  "keyword": "Given ",
-  "line": 5,
-  "matchedColumns": [
-    1
-  ]
-});
-formatter.step({
-  "name": "I should see \"facebook\" on header",
-  "keyword": "Then ",
-  "line": 6,
-  "matchedColumns": [
-    0
-  ]
-});
-formatter.step({
-  "name": "I should see \"Google\" logo on header",
-  "keyword": "And ",
-  "line": 7
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "https://www.google.com/keep/",
-      "offset": 14
-    },
-    {
-      "val": "Firefox",
-      "offset": 48
-    }
-  ],
-  "location": "Feature1Steps.i_am_on_site(String,String)"
-});
-formatter.result({
-  "duration": 3790976000,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "facebook",
-      "offset": 14
-    }
-  ],
-  "location": "Feature1Steps.i_should_see_on_header(String)"
-});
-formatter.result({
-  "duration": 142000,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Google",
-      "offset": 14
-    }
-  ],
-  "location": "Feature1Steps.i_should_see_logo_on_header(String)"
-});
-formatter.result({
-  "duration": 150438000,
+  "duration": 112526000,
   "status": "passed"
 });
 });

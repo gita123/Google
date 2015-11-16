@@ -8,22 +8,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 //import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.FindBy;
+
+
 
 public class Google {
 	
 	WebDriver driver;
+	
 	public String browser;
 	
 	@FindBy(css=".social-icon-on.gplus-on")
 	private WebElement gplus;
 	
-	@FindBy(css=".social-icon-on.facebook-on")
+	@FindBy(css="li.social-link.social-link--facebook")
 	private WebElement facebook;
 	
-	@FindBy(css=".social-icon-on.twitter-on")
+	@FindBy(css="li.social-link.social-link--twitter")
 	private WebElement twitter;
 	
 	@FindBy(className="lockup-logo")
@@ -45,8 +47,8 @@ public class Google {
 	this.driver = driver;
 	}
 	
-	public void open(String url, String browser) throws InterruptedException {
-	
+	public void open(String url) throws InterruptedException {
+		String browser = System.getProperty("browser");
 		if(browser.equals("Firefox"))
 			driver = new FirefoxDriver();
 		else if(browser.equals("Chrome"))
@@ -57,7 +59,8 @@ public class Google {
 		
 		driver.get(url);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Thread.sleep(4000);
+//		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			
 		}
 	
@@ -73,15 +76,15 @@ public class Google {
 	}
 	
 		 
-		public void close() {
-		driver.quit();
-		}
+	public void close() {
+		driver.close();
+	}
 		
-		public boolean elementExists(String ele){
-			if(ele !=null)
-				return true;
-			return false;
-		}
+	public boolean elementExists(String ele){
+		if(ele !=null)
+			return true;
+		return false;
+	}
 		
 		public String get_text_from_brand(){
 			String text = brand.getText();
