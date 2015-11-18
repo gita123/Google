@@ -1,5 +1,7 @@
 package com.kids.ads;
 
+import java.net.MalformedURLException;
+
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -15,7 +17,7 @@ public class Feature1Steps{
 	Google po = new Google(driver);
 
 @Given("^I am on site \"([^\"]*)\"$")
-public void i_am_on_site(String url) throws InterruptedException{
+public void i_am_on_site(String url) throws InterruptedException, MalformedURLException{
 
 	po.open(url);
     

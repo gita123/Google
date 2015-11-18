@@ -1,13 +1,20 @@
 package com.kids.ads.PageObjects;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+//import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+//import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 //import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -47,14 +54,23 @@ public class Google {
 	this.driver = driver;
 	}
 	
-	public void open(String url) throws InterruptedException {
+	public void open(String url) throws InterruptedException, MalformedURLException {
 		String browser = System.getProperty("browser");
 		if(browser.equals("Firefox"))
 			driver = new FirefoxDriver();
 		else if(browser.equals("Chrome"))
 			driver = new ChromeDriver();
-		else
-			System.out.println("Intialize the new driver here");
+		else if(browser.equalsIgnoreCase("GRID_CHROME")){
+ 		    DesiredCapabilities capability = DesiredCapabilities.chrome();
+//			DesiredCapabilities capability= new DesiredCapabilities();
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		}
+		else if(browser.equalsIgnoreCase("GRID_FIREFOX")){
+			DesiredCapabilities capability= new DesiredCapabilities();
+			capability.setBrowserName("firefox");
+			capability.setCapability("platform", "MAC");
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		}
 		
 		
 		driver.get(url);
@@ -64,7 +80,9 @@ public class Google {
 			
 		}
 	
-	public void getBrowser(String browser){
+	public void getBrowser(String browser) throws IOException{
+//		DesiredCapabilities capability= new DesiredCapabilities();
+//		capability.setBrowserName(browser);
 		if(browser.equalsIgnoreCase("Firefox")){
 			driver = new FirefoxDriver();
 			System.out.println("Firefox browser started");
@@ -73,11 +91,22 @@ public class Google {
 			driver = new ChromeDriver();
 			System.out.println("Chrome browser started");
 		}
+		else if(browser.equalsIgnoreCase("GRID_CHROME")){
+ 		    DesiredCapabilities capability = DesiredCapabilities.chrome();
+//			DesiredCapabilities capability= new DesiredCapabilities();
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		}
+		else if(browser.equalsIgnoreCase("GRID_FIREFOX")){
+			DesiredCapabilities capability= new DesiredCapabilities();
+			capability.setBrowserName("firefox");
+			capability.setCapability("platform", "MAC");
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		}
 	}
 	
 		 
 	public void close() {
-		driver.close();
+		driver.quit();
 	}
 		
 	public boolean elementExists(String ele){
