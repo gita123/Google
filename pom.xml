@@ -39,17 +39,17 @@
 		<version>2.19</version>
 		<executions>
 			<execution>
-			<!-- <id>acceptance-test</id>
+			<id>acceptance-test</id>
 			<phase>integration-test</phase>
 			<goals>
 				<goal>test</goal>
-			</goals> -->
+			</goals>
 				<configuration>
                     <skip>true</skip>
-				<systemPropertyVariables>
-        			<browser>${browser}</browser>
-      			</systemPropertyVariables>
-			</configuration>
+					<systemPropertyVariables>
+        				<browser>${browser}</browser>
+      				</systemPropertyVariables>
+				</configuration>
 			
 			</execution>
 		</executions>
