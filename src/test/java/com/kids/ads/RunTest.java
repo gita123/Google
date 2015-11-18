@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		format = {"pretty", 
 				"html:target/cucumber",
-				"json :target/cucumber.json"},
+				"json:target/cucumber.json"},
 		features = {"src/test/resources"}
 		)
 public class RunTest {
