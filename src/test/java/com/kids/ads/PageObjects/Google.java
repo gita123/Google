@@ -8,11 +8,13 @@ import java.util.List;
 //import java.util.concurrent.TimeUnit;
 
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 //import org.openqa.selenium.phantomjs.PhantomJSDriver;
@@ -60,6 +62,8 @@ public class Google {
 			driver = new FirefoxDriver();
 		else if(browser.equals("Chrome"))
 			driver = new ChromeDriver();
+		else if(browser.equalsIgnoreCase("phantom"))
+			driver = new PhantomJSDriver();
 		else if(browser.equalsIgnoreCase("GRID_CHROME")){
  		    DesiredCapabilities capability = DesiredCapabilities.chrome();
 //			DesiredCapabilities capability= new DesiredCapabilities();
@@ -90,6 +94,10 @@ public class Google {
 		else if(browser.equalsIgnoreCase("chrome")){
 			driver = new ChromeDriver();
 			System.out.println("Chrome browser started");
+		}
+		else if(browser.equalsIgnoreCase("phantom")){
+//			driver = new PhantomJSDriver();
+			System.out.println("PhantomJS started");
 		}
 		else if(browser.equalsIgnoreCase("GRID_CHROME")){
  		    DesiredCapabilities capability = DesiredCapabilities.chrome();
