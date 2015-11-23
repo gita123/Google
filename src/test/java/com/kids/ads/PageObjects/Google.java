@@ -56,8 +56,9 @@ public class Google {
 	this.driver = driver;
 	}
 	
-	public void open(String url) throws InterruptedException, MalformedURLException {
+	public void open() throws InterruptedException, MalformedURLException {
 		String browser = System.getProperty("browser");
+		String env = System.getProperty("env");
 		if(browser.equals("Firefox"))
 			driver = new FirefoxDriver();
 		else if(browser.equals("Chrome"))
@@ -76,8 +77,10 @@ public class Google {
 			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 		}
 		
-		
-		driver.get(url);
+		if(env.equalsIgnoreCase("CI"))
+			driver.get("https://www.google.com/keep/");
+		else if(env.equalsIgnoreCase("SI"))
+			driver.get("https://google.com");
 		driver.manage().window().maximize();
 		Thread.sleep(4000);
 //		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);

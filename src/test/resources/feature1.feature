@@ -2,7 +2,7 @@
 Feature: Verifying site functionalities
 
  Scenario Outline: Verify social media on header
-		Given I am on site "https://www.google.com/keep/"
+		Given I am on site
 		Then I should see "<socialmedia>" on header
 		
 		Examples:
@@ -12,6 +12,6 @@ Feature: Verifying site functionalities
 		  | gplus        |
 	  
  Scenario: Verify button
- 		Given I am on site "https://www.google.com/keep/"
+ 		Given I am on site
 		When I click on Try Google Keep
 		Then I should see different versions

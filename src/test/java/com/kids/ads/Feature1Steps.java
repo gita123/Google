@@ -16,10 +16,10 @@ public class Feature1Steps{
 	WebDriver driver;
 	Google po = new Google(driver);
 
-@Given("^I am on site \"([^\"]*)\"$")
-public void i_am_on_site(String url) throws InterruptedException, MalformedURLException{
+@Given("^I am on site$")
+public void i_am_on_site() throws InterruptedException, MalformedURLException{
 
-	po.open(url);
+	po.open();
     
 }
 

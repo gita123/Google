@@ -54,6 +54,7 @@
                     <skip>true</skip>
 					<systemPropertyVariables>
         				<browser>${browser}</browser>
+        				<environment>${env}</environment>
       				</systemPropertyVariables>
 				</configuration>
 			
