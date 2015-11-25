@@ -10,7 +10,8 @@ Feature: Verifying site functionalities
 		  | twitter      |
 		  | facebook     |
 		  | gplus        |
-	  
+
+ @smoke	  
  Scenario: Verify button
  		Given I am on site
 		When I click on Try Google Keep

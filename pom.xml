@@ -33,34 +33,21 @@
 		<groupId>com.github.detro</groupId>
 		<artifactId>phantomjsdriver</artifactId>
 		<version>1.2.0</version>
-	</dependency>
-	
-	
-  </dependencies>
-  <build>
- <plugins>
-  	<plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-surefire-plugin</artifactId>
-		<version>2.19</version>
-		<executions>
-			<execution>
-			<!-- <id>acceptance-test</id>
-			<phase>integration-test</phase>
-			<goals>
-				<goal>test</goal>
-			</goals> -->
-				<configuration>
-                    <skip>true</skip>
-					<systemPropertyVariables>
-        				<browser>${browser}</browser>
-        				<environment>${env}</environment>
-      				</systemPropertyVariables>
-				</configuration>
-			
-			</execution>
-		</executions>
-  	</plugin>
-</plugins>
- </build>
+	</dependency>	
+</dependencies>
+ 	<build>
+ 		<plugins>
+ 			<plugin>
+ 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19</version>
+ 					<configuration>
+						<systemPropertyVariables>
+        					<browser>${browser}</browser>
+        					<environment>${env}</environment>
+      					</systemPropertyVariables>
+					</configuration>
+			</plugin>
+		</plugins>
+ 	</build>
 </project>
