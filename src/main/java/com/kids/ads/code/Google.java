@@ -1,13 +1,10 @@
 package com.kids.ads.code;
 
-import java.net.MalformedURLException;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class Google{
 	
@@ -40,18 +37,11 @@ public class Google{
 	@FindBy(css=".keep-header .split-button-main-button>a")
 	public WebElement tryGoogle;
 	
-	
+	@FindBy(css=".split-button-container--open .split-button-child-buttons")
+	public WebElement container;
 	
 	public Google(WebDriver driver){
 		this.driver=driver;
-	}
-	
-	public void open() throws InterruptedException, MalformedURLException {
-		
-		EnvironmentSetup env = new EnvironmentSetup();
-		env.configBrowsers();
-		env.configEnvironments();
-//		driver = env.getDriver();
 	}
 			 
 	public void close() {
@@ -64,32 +54,32 @@ public class Google{
 		return false;
 	}
 		
-		public String get_text_from_brand(){
-			String text = brand.getText();
-			return text;
-		}
+	public String get_text_from_brand(){
+		String text = brand.getText();
+		return text;
+	}
 		
-		public void click_on_google_keep(){
-			tryGoogle.click();
+	public void click_on_google_keep(){
+		tryGoogle.click();
+	}
+
+	public void get_goole_keep_versions(){
+		List<WebElement> elements = container.findElements(By.tagName("a"));
+		for(WebElement element: elements) {
+			System.out.println(element.getText());
 		}
-		
-		public void get_goole_keep_versions(){
-			List<WebElement> elements = driver.findElement(By.cssSelector(".split-button-container--open .split-button-child-buttons")).findElements(By.tagName("a"));
-			for(int i = 0; i < elements.size(); i++) {
-	            System.out.println(elements.get(i).getText());
-	        }
-		}
-		
-		public boolean is_capture_section_exists(){
-			if(capture_section.isDisplayed())
-				return true;
-			return false;
-		}
-		
-		public String get_capture_title(){
-			WebElement capture_title = driver.findElement(By.cssSelector(".keep-capture__title"));
-			return (capture_title.getText());
-		}
+	}
+
+	public boolean is_capture_section_exists(){
+		if(capture_section.isDisplayed())
+			return true;
+		return false;
+	}
+
+	public String get_capture_title(){
+		WebElement capture_title = driver.findElement(By.cssSelector(".keep-capture__title"));
+		return (capture_title.getText());
+	}
 		
 		public String get_capture_sub_title(){
 			WebElement capture_sub_title = driver.findElement(By.cssSelector(".keep-capture__sub-title"));
